@@ -9,7 +9,7 @@ const MainLogo = () => {
       onClick={() => window.parent.postMessage({ type: "OPEN_EXTERNAL_URL", data: { url: "https://giftclick.org/aff_c?offer_id=4275&aff_id=183864&source=Apple" } }, "*")}
     >
       <img 
-        src="https://i.imgur.com/lfmzARL.png" 
+        src="https://i.imgur.com/qlQ89NU.png" 
         alt="Apple Logo" 
         className="h-10 sm:h-15 w-20 object-contain transition-all duration-700 hover:brightness-120"
       />
