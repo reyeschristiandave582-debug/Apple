@@ -31,7 +31,7 @@ const AnnouncementBar = () => {
   };
 
   return (
-    <div className="sticky top-0 z-50 w-full bg-[#000001] border-b border-[#000001]/30 py-1.5 px-4 shadow-[0_4px_20px_rgba(0,0,0,0.3)] backdrop-blur-md">
+    <div className="sticky top-0 z-50 w-full bg-[#969696] border-b border-[#969696]/30 py-1.5 px-4 shadow-[0_4px_20px_rgba(0,0,0,0.3)] backdrop-blur-md">
       {/* Sparkle Icons Overlay */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-20">
         <Sparkles 
@@ -50,12 +50,12 @@ const AnnouncementBar = () => {
         <div className="flex items-center justify-center gap-3">
             <div className="flex items-center justify-center gap-2 text-center">
               <Clock 
-                className="w-3.5 h-3.5 text-[#ffffff] animate-pulse shrink-0" 
+                className="w-3.5 h-3.5 text-[#000000] animate-pulse shrink-0" 
                 strokeWidth={2.5}
               />
-              <p className="text-[#ffffff] text-[12px] font-bold tracking-tight text-center">
+              <p className="text-[#000000] text-[12px] font-bold tracking-tight text-center">
                 You have{" "}
-                <span className="text-[#ffffff] tabular-nums font-black">
+                <span className="text-[#000000] tabular-nums font-black">
                   {formatTime(timeLeft)}
                 </span>{" "}
                 minutes left to unlock your Apple reward
@@ -65,11 +65,11 @@ const AnnouncementBar = () => {
 
         {/* Bottom Row: Subtext with decorative lines */}
         <div className="flex items-center gap-2 mt-0.5">
-          <div className="h-[1px] w-4 bg-[#ffffff]"></div>
-          <p className="text-[#ffffff] text-[9px] uppercase tracking-[0.15em] font-bold">
+          <div className="h-[1px] w-4 bg-[#000000]"></div>
+          <p className="text-[#000000] text-[9px] uppercase tracking-[0.15em] font-bold">
             Complete the steps before access expires
           </p>
-          <div className="h-[1px] w-4 bg-[#ffffff]"></div>
+          <div className="h-[1px] w-4 bg-[#000000]"></div>
         </div>
       </div>
 
