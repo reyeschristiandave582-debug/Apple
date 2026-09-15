@@ -17,23 +17,23 @@ interface Step {
 const steps: Step[] = [
   {
     icon: <ShoppingBag className="w-3 h-3 sm:w-3.5 sm:h-3.5" />,
-    text: 'Click the "Start Review" button',
+    text: 'Start the review',
   },
   {
     icon: <UserPlus className="w-3 h-3 sm:w-3.5 sm:h-3.5" />,
-    text: "Enter your email and basic shopper details",
+    text: "Enter your basic details",
   },
   {
     icon: <ClipboardList className="w-3 h-3 sm:w-3.5 sm:h-3.5" />,
-    text: "Answer our quick shopper experience survey",
+    text: "Complete the short survey",
   },
   {
     icon: <Gift className="w-3 h-3 sm:w-3.5 sm:h-3.5" />,
-    text: "Complete 4–5 featured partner offers",
+    text: "Review available partner offers",
   },
   {
     icon: <Unlock className="w-3 h-3 sm:w-3.5 sm:h-3.5" />,
-    text: "Unlock Apple Rewards",
+    text: "Check your reward eligibility",
   },
 ];
 
