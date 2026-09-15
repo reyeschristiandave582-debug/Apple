@@ -49,7 +49,7 @@ export default function CTAButton() {
       </a>
 
       <p className="mt-3 text-[#182C54]/60 text-[10px] sm:text-[11px] font-bold tracking-tight text-center italic">
-        (Instant approval - No purchase required)
+        (No purchase required - Eligibility and reward terms apply)
       </p>
 
       {/* Subtle bottom glow */}
