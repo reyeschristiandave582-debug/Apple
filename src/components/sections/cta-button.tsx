@@ -33,7 +33,7 @@ export default function CTAButton() {
 
         <div className="flex items-center gap-3 sm:gap-4 relative z-10">
           <Star 
-            className="w-3 h-3 sm:w-3.5 sm:h-3.5 fill-[#ffffff] text-[#ffffff] animate-pulse" 
+            className="w-3 h-3 sm:w-3.5 sm:h-3.5 fill-[#ffc220] text-[#ffc220] animate-pulse" 
             style={{ filter: 'none' }}
           />
 
@@ -42,7 +42,7 @@ export default function CTAButton() {
           </span>
 
           <Star 
-            className="w-3 h-3 sm:w-3.5 sm:h-3.5 fill-[#ffffff] text-[#ffffff] animate-pulse" 
+            className="w-3 h-3 sm:w-3.5 sm:h-3.5 fill-[#ffc220] text-[#ffc220] animate-pulse" 
             style={{ filter: 'none' }}
           />
         </div>
