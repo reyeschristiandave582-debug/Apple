@@ -1,13 +1,12 @@
 "use client";
 
 import React from "react";
-import { Lock, Sparkles } from "lucide-react";
+import { Lock, Sparkles, Users } from "lucide-react";
 
 /**
  * AnnouncementBar Component
  * 
- * A sticky top bar designed for maximum trust, featuring 256-bit encryption 
- * messaging and official partner verification.
+ * A sticky top bar combining 256-Bit SSL encryption trust with live participation social proof.
  * Built for Next.js 15, TypeScript, and Tailwind CSS.
  */
 const AnnouncementBar = () => {
@@ -27,7 +26,7 @@ const AnnouncementBar = () => {
 
       {/* Main Content Container */}
       <div className="relative z-10 flex flex-col items-center justify-center max-w-xl mx-auto">
-        {/* Top Row: Bank-grade Security Message */}
+        {/* Top Row: Security & Social Proof Combined */}
         <div className="flex items-center justify-center gap-3">
           <div className="flex items-center justify-center gap-2 text-center">
             <Lock 
@@ -35,7 +34,7 @@ const AnnouncementBar = () => {
               strokeWidth={2.5}
             />
             <p className="text-[#000000] text-[12px] font-bold tracking-tight text-center">
-              256-Bit SSL Encrypted &bull; Official Consumer Rewards Channel
+              256-Bit SSL Secured &bull; Over <span className="underline decoration-black/40 underline-offset-2">1,400+ participants</span> completed verification today
             </p>
           </div>
         </div>
@@ -44,7 +43,7 @@ const AnnouncementBar = () => {
         <div className="flex items-center gap-2 mt-0.5">
           <div className="h-[1px] w-4 bg-[#000000]"></div>
           <p className="text-[#000000] text-[9px] uppercase tracking-[0.15em] font-bold">
-            Verified Partner Portal &bull; Secure Session
+            Official Partner Portal &bull; Secure Session
           </p>
           <div className="h-[1px] w-4 bg-[#000000]"></div>
         </div>
