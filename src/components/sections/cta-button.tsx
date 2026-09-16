@@ -26,34 +26,34 @@ export default function CTAButton() {
         target="_blank"
         rel="noopener noreferrer"
         onClick={handleClick}
-        className="group relative w-[220px] sm:w-full h-[42px] sm:h-[54px] bg-[#666666] hover:bg-[#666666] text-white rounded-full flex items-center justify-center gap-2 shadow-[0_4px_15px_rgba(0,36,204,0.3)] transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] overflow-hidden no-underline"
+        className="group relative w-[240px] sm:w-full h-[46px] sm:h-[56px] bg-gradient-to-r from-[#595959] via-[#707070] to-[#595959] hover:from-[#4d4d4d] hover:via-[#616161] hover:to-[#4d4d4d] text-white rounded-full flex items-center justify-center gap-2 shadow-[0_6px_25px_rgba(0,0,0,0.35)] transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] overflow-hidden no-underline border border-white/20"
       >
         {/* Shine Animation Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent -left-full group-hover:animate-shine pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -left-full group-hover:animate-shine pointer-events-none" />
 
         <div className="flex items-center gap-3 sm:gap-4 relative z-10">
           <Star 
-            className="w-3 h-3 sm:w-3.5 sm:h-3.5 fill-[#ffc220] text-[#ffc220] animate-pulse" 
-            style={{ filter: 'none' }}
+            className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-[#ffc220] text-[#ffc220] animate-pulse" 
+            style={{ filter: 'drop-shadow(0 0 4px rgba(255,194,32,0.5))' }}
           />
 
-          <span className="text-[12px] sm:text-[14px] font-bold sm:font-white uppercase text-white tracking-[0.08em] flex items-center gap-1.5 sm:gap-2">
+          <span className="text-[13px] sm:text-[15px] font-black uppercase text-white tracking-[0.12em] drop-shadow-sm flex items-center gap-1.5 sm:gap-2">
             START REVIEW
           </span>
 
           <Star 
-            className="w-3 h-3 sm:w-3.5 sm:h-3.5 fill-[#ffc220] text-[#ffc220] animate-pulse" 
-            style={{ filter: 'none' }}
+            className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-[#ffc220] text-[#ffc220] animate-pulse" 
+            style={{ filter: 'drop-shadow(0 0 4px rgba(255,194,32,0.5))' }}
           />
         </div>
       </a>
 
-      <p className="mt-3 text-[#182C54]/60 text-[10px] sm:text-[11px] font-bold tracking-tight text-center italic">
+      <p className="mt-3 text-gray-500 text-[10px] sm:text-[11px] font-semibold tracking-tight text-center italic">
         (No purchase required - Eligibility and reward terms apply)
       </p>
 
       {/* Subtle bottom glow */}
-      <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-3/4 h-8 bg-[#0024cc]/20 blur-2xl -z-10 rounded-full opacity-50 pointer-events-none" />
+      <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-3/4 h-8 bg-black/15 blur-2xl -z-10 rounded-full opacity-60 pointer-events-none" />
     </div>
   );
 }
