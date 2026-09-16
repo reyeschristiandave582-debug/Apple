@@ -1,35 +1,15 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import { Clock, Sparkles } from "lucide-react";
+import React from "react";
+import { ShieldCheck, Sparkles } from "lucide-react";
 
 /**
  * AnnouncementBar Component
  * 
- * A sticky top bar with a countdown timer, sparkle icons, and a shimmering bottom border.
- * Built to pixel-perfect accuracy using Next.js 15, TypeScript, and Tailwind CSS.
+ * A sticky top bar focused on trust, official verification, and secure access.
+ * Built for Next.js 15, TypeScript, and Tailwind CSS.
  */
 const AnnouncementBar = () => {
-  // Initial time set to 5 minutes (300 seconds)
-  const [timeLeft, setTimeLeft] = useState(300);
-
-  useEffect(() => {
-    if (timeLeft <= 0) return;
-
-    const timer = setInterval(() => {
-      setTimeLeft((prev) => prev - 1);
-    }, 1000);
-
-    return () => clearInterval(timer);
-  }, [timeLeft]);
-
-  // Format time as M:SS
-  const formatTime = (seconds: number) => {
-    const mins = Math.floor(seconds / 60);
-    const secs = seconds % 60;
-    return `${mins}:${secs.toString().padStart(2, "0")}`;
-  };
-
   return (
     <div className="sticky top-0 z-50 w-full bg-[#969696] border-b border-[#969696]/30 py-1.5 px-4 shadow-[0_4px_20px_rgba(0,0,0,0.3)] backdrop-blur-md">
       {/* Sparkle Icons Overlay */}
@@ -46,28 +26,24 @@ const AnnouncementBar = () => {
 
       {/* Main Content Container */}
       <div className="relative z-10 flex flex-col items-center justify-center max-w-xl mx-auto">
-        {/* Top Row: Timer Message */}
+        {/* Top Row: Trust & Security Message */}
         <div className="flex items-center justify-center gap-3">
-            <div className="flex items-center justify-center gap-2 text-center">
-              <Clock 
-                className="w-3.5 h-3.5 text-[#000000] animate-pulse shrink-0" 
-                strokeWidth={2.5}
-              />
-              <p className="text-[#000000] text-[12px] font-bold tracking-tight text-center">
-                You have{" "}
-                <span className="text-[#000000] tabular-nums font-black">
-                  {formatTime(timeLeft)}
-                </span>{" "}
-                minutes left to unlock your Apple reward
-              </p>
-            </div>
+          <div className="flex items-center justify-center gap-2 text-center">
+            <ShieldCheck 
+              className="w-3.5 h-3.5 text-[#000000] shrink-0" 
+              strokeWidth={2.5}
+            />
+            <p className="text-[#000000] text-[12px] font-bold tracking-tight text-center">
+              Official Apple Rewards Partner Verification &bull; Secure Session
+            </p>
+          </div>
         </div>
 
         {/* Bottom Row: Subtext with decorative lines */}
         <div className="flex items-center gap-2 mt-0.5">
           <div className="h-[1px] w-4 bg-[#000000]"></div>
           <p className="text-[#000000] text-[9px] uppercase tracking-[0.15em] font-bold">
-            Complete the steps before access expires
+            Verified & Protected Participant Portal
           </p>
           <div className="h-[1px] w-4 bg-[#000000]"></div>
         </div>
