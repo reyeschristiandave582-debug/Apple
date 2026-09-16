@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Lock, Sparkles, Users } from "lucide-react";
+import { Lock, Sparkles } from "lucide-react";
 
 /**
  * AnnouncementBar Component
@@ -34,7 +34,7 @@ const AnnouncementBar = () => {
               strokeWidth={2.5}
             />
             <p className="text-[#000000] text-[12px] font-bold tracking-tight text-center">
-              256-Bit SSL Secured &bull; Over <span className="underline decoration-black/40 underline-offset-2">1,400+ participants</span> completed verification today
+              256-Bit SSL Secured &bull; Over 1,400+ participants completed verification today
             </p>
           </div>
         </div>
