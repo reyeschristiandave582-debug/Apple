@@ -30,10 +30,10 @@ const AnnouncementBar = () => {
         <div className="flex items-center justify-center gap-3">
           <div className="flex items-center justify-center gap-2 text-center">
             <Lock 
-              className="w-3.5 h-3.5 text-[#ffffff] shrink-0" 
+              className="w-3.5 h-3.5 text-[#000000] shrink-0" 
               strokeWidth={2.5}
             />
-            <p className="text-[#ffffff] text-[12px] font-bold tracking-tight text-center">
+            <p className="text-[#000000] text-[12px] font-bold tracking-tight text-center">
               256-Bit SSL Secured &bull; Over 1,400+ participants completed verification today
             </p>
           </div>
@@ -41,11 +41,11 @@ const AnnouncementBar = () => {
 
         {/* Bottom Row: Subtext with decorative lines */}
         <div className="flex items-center gap-2 mt-0.5">
-          <div className="h-[1px] w-4 bg-[#ffffff]"></div>
-          <p className="text-[#ffffff] text-[9px] uppercase tracking-[0.15em] font-bold">
+          <div className="h-[1px] w-4 bg-[#000000]"></div>
+          <p className="text-[#000000] text-[9px] uppercase tracking-[0.15em] font-bold">
             Official Partner Portal &bull; Secure Session
           </p>
-          <div className="h-[1px] w-4 bg-[#ffffff]"></div>
+          <div className="h-[1px] w-4 bg-[#000000]"></div>
         </div>
       </div>
 
