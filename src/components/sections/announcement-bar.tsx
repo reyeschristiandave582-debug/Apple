@@ -43,7 +43,7 @@ const AnnouncementBar = () => {
         <div className="flex items-center gap-2 mt-0.5">
           <div className="h-[1px] w-4 bg-[#000000]"></div>
           <p className="text-[#000000] text-[9px] uppercase tracking-[0.15em] font-bold">
-            Official Partner Portal &bull; Secure Session
+            Secure Eligibility Check &bull; Privacy Protected
           </p>
           <div className="h-[1px] w-4 bg-[#000000]"></div>
         </div>
