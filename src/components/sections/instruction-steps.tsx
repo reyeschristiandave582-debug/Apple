@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import { ArrowRight, ShieldCheck } from "lucide-react";
 
 interface Step {
   number: number;
@@ -39,7 +38,7 @@ const steps: Step[] = [
 
 export default function InstructionSteps() {
   return (
-    <section className="relative w-full max-w-md mx-auto px-4 sm:px-5 mb-6 mt-3">
+    <section className="relative w-full max-w-md mx-auto px-4 sm:px-5 mb-4 mt-3">
       {/* Steps Card Wrapper */}
       <div className="relative rounded-[1.5rem] sm:rounded-[2rem] p-3.5 sm:p-5 bg-white/90 backdrop-blur-md border border-gray-200/80 shadow-xl overflow-hidden transition-all duration-300">
         {/* Decorative Background Texture */}
@@ -75,29 +74,6 @@ export default function InstructionSteps() {
               </div>
             </div>
           ))}
-        </div>
-
-        {/* High-Converting Primary CTA Button */}
-        <div className="relative z-10 mt-5 pt-2">
-          <button
-            type="button"
-            onClick={() => {
-              // Action handler or navigation logic
-            }}
-            className="w-full relative group overflow-hidden flex items-center justify-center gap-2 bg-[#0071E3] hover:bg-[#0077ED] active:scale-[0.98] text-white font-bold text-base sm:text-lg py-3.5 px-6 rounded-2xl shadow-lg shadow-[#0071E3]/25 transition-all duration-200 cursor-pointer"
-          >
-            {/* Shimmer Effect */}
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent -left-full group-hover:animate-shine" />
-
-            <span>START REVIEW</span>
-            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" strokeWidth={2.5} />
-          </button>
-
-          {/* Trust Micro-Copy below CTA */}
-          <div className="flex items-center justify-center gap-1.5 mt-2.5 text-[10px] sm:text-[11px] text-gray-500 font-medium">
-            <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-            <span>No purchase required &bull; Eligibility terms apply</span>
-          </div>
         </div>
       </div>
     </section>
