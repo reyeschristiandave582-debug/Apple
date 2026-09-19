@@ -42,7 +42,7 @@ const notifications: NotificationItem[] = Array.from({ length: 100 }, (_, i) => 
  * AnnouncementBar Component
  * 
  * A sticky top bar combining 256-Bit SSL encryption trust with live participation social proof
- * and dynamic floating social proof toast notifications.
+ * and dynamic floating bottom social proof toast notifications.
  */
 const AnnouncementBar = () => {
   const [currentNotif, setCurrentNotif] = useState<NotificationItem | null>(null);
@@ -123,13 +123,13 @@ const AnnouncementBar = () => {
         </div>
       </div>
 
-      {/* Floating Live Social Proof Notification */}
+      {/* Floating Live Social Proof Notification (Bottom Anchored) */}
       {currentNotif && (
         <div
-          className={`fixed top-[90px] left-3 right-3 sm:top-16 sm:left-auto sm:right-4 z-[9999] max-w-md mx-auto sm:mx-0 flex items-center gap-2.5 rounded-xl border-l-[4px] border-[#10B981] bg-white/95 backdrop-blur-sm px-3 py-2 shadow-[0_8px_20px_rgba(0,0,0,0.12)] overflow-hidden transition-all duration-500 ease-in-out ${
+          className={`fixed bottom-4 left-3 right-3 sm:left-4 sm:right-auto z-[9999] max-w-md mx-auto sm:mx-0 flex items-center gap-2.5 rounded-xl border-l-[4px] border-[#10B981] bg-white/95 backdrop-blur-md px-3 py-2.5 shadow-[0_10px_25px_rgba(0,0,0,0.18)] overflow-hidden transition-all duration-500 ease-in-out ${
             isVisible
               ? "translate-y-0 opacity-100"
-              : "-translate-y-4 opacity-0 pointer-events-none"
+              : "translate-y-6 opacity-0 pointer-events-none"
           }`}
         >
           {/* Green Checkmark Circle */}
