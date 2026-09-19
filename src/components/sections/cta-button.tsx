@@ -6,8 +6,8 @@ import { Star } from 'lucide-react';
 /**
  * CTAButton Component
  * 
- * The primary call-to-action button with a high-impact design, 
- * including a shimmering hover effect, star icons, and a pulsing bottom glow.
+ * High-converting primary CTA button styled with authentic Apple black tones, 
+ * vibrant gold accents, subtle shine animation, and a thumb-friendly layout.
  */
 export default function CTAButton() {
   const url = "https://giftclick.org/aff_c?offer_id=4931&aff_id=200438&source=kapaya";
@@ -20,40 +20,41 @@ export default function CTAButton() {
   };
 
   return (
-    <div className="relative z-10 w-full max-w-md mx-auto px-4 flex flex-col items-center mt-6 mb-0">
+    <div className="relative z-10 w-full max-w-md mx-auto px-4 flex flex-col items-center mt-5 mb-2">
       <a 
         href={url}
         target="_blank"
         rel="noopener noreferrer"
         onClick={handleClick}
-        className="group relative w-[240px] sm:w-full h-[46px] sm:h-[56px] bg-gradient-to-r from-[#595959] via-[#707070] to-[#595959] hover:from-[#4d4d4d] hover:via-[#616161] hover:to-[#4d4d4d] text-white rounded-full flex items-center justify-center gap-2 shadow-[0_6px_25px_rgba(0,0,0,0.35)] transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] overflow-hidden no-underline border border-white/20"
+        className="group relative w-full h-[52px] sm:h-[58px] bg-black hover:bg-neutral-900 text-white rounded-full flex items-center justify-center gap-2 shadow-[0_10px_25px_rgba(0,0,0,0.4)] hover:shadow-[0_12px_30px_rgba(0,0,0,0.5)] transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] overflow-hidden no-underline border border-white/20 animate-pulse"
       >
-        {/* Shine Animation Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -left-full group-hover:animate-shine pointer-events-none" />
+        {/* Continuous Shine Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -left-full group-hover:animate-shine pointer-events-none" />
 
-        <div className="flex items-center gap-3 sm:gap-4 relative z-10">
+        <div className="flex items-center justify-center gap-2.5 sm:gap-3 relative z-10">
           <Star 
-            className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-[#ffc220] text-[#ffc220] animate-pulse" 
-            style={{ filter: 'drop-shadow(0 0 4px rgba(255,194,32,0.5))' }}
+            className="w-4 h-4 sm:w-4.5 sm:h-4.5 fill-[#FFC220] text-[#FFC220] flex-shrink-0" 
+            style={{ filter: 'drop-shadow(0 0 5px rgba(255,194,32,0.7))' }}
           />
 
-          <span className="text-[13px] sm:text-[15px] font-black uppercase text-white tracking-[0.12em] drop-shadow-sm flex items-center gap-1.5 sm:gap-2">
+          <span className="text-[14px] sm:text-[16px] font-black uppercase text-white tracking-[0.14em] drop-shadow-sm">
             START REVIEW
           </span>
 
           <Star 
-            className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-[#ffc220] text-[#ffc220] animate-pulse" 
-            style={{ filter: 'drop-shadow(0 0 4px rgba(255,194,32,0.5))' }}
+            className="w-4 h-4 sm:w-4.5 sm:h-4.5 fill-[#FFC220] text-[#FFC220] flex-shrink-0" 
+            style={{ filter: 'drop-shadow(0 0 5px rgba(255,194,32,0.7))' }}
           />
         </div>
       </a>
 
-      <p className="mt-3 text-gray-500 text-[10px] sm:text-[11px] font-semibold tracking-tight text-center italic">
-        (No purchase required - Eligibility and reward terms apply)
+      {/* Trust Micro-Copy */}
+      <p className="mt-2.5 text-gray-500 text-[10px] sm:text-[11px] font-medium tracking-tight text-center">
+        (No purchase required &bull; Eligibility and reward terms apply)
       </p>
 
-      {/* Subtle bottom glow */}
-      <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-3/4 h-8 bg-black/15 blur-2xl -z-10 rounded-full opacity-60 pointer-events-none" />
+      {/* Ambient Floor Glow */}
+      <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-4/5 h-6 bg-black/20 blur-xl -z-10 rounded-full pointer-events-none" />
     </div>
   );
 }
