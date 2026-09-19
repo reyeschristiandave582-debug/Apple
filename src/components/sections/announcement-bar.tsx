@@ -126,7 +126,7 @@ const AnnouncementBar = () => {
       {/* Floating Live Social Proof Notification */}
       {currentNotif && (
         <div
-          className={`fixed top-4 right-4 z-[9999] flex items-center gap-3 rounded-2xl border-l-[6px] border-[#10B981] bg-white px-4 py-3 shadow-[0_10px_25px_rgba(0,0,0,0.15)] transition-all duration-500 ease-in-out ${
+          className={`fixed top-12 sm:top-16 right-4 z-[9999] flex items-center gap-3 rounded-2xl border-l-[6px] border-[#10B981] bg-white px-4 py-3 shadow-[0_10px_25px_rgba(0,0,0,0.15)] overflow-hidden transition-all duration-500 ease-in-out ${
             isVisible
               ? "translate-y-0 opacity-100"
               : "-translate-y-6 opacity-0 pointer-events-none"
