@@ -12,7 +12,7 @@ const steps: Step[] = [
   {
     number: 1,
     title: "Start the review",
-    subtitle: "Tap the button below to begin",
+    subtitle: "Click 'Start Review' below to verify eligibility",
   },
   {
     number: 2,
