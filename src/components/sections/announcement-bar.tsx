@@ -42,7 +42,7 @@ const notifications: NotificationItem[] = Array.from({ length: 100 }, (_, i) => 
  * AnnouncementBar Component
  * 
  * A sticky top bar combining 256-Bit SSL encryption trust with live participation social proof
- * and dynamic floating bottom social proof toast notifications.
+ * and dynamic floating top social proof toast notifications.
  */
 const AnnouncementBar = () => {
   const [currentNotif, setCurrentNotif] = useState<NotificationItem | null>(null);
@@ -78,8 +78,11 @@ const AnnouncementBar = () => {
 
   return (
     <>
-      {/* Top Banner Bar */}
-      <div className="sticky top-0 z-50 w-full bg-[#969696] border-b border-[#969696]/30 py-1 px-2 sm:px-4 shadow-[0_4px_20px_rgba(0,0,0,0.3)] backdrop-blur-md">
+      {/* Top Banner Bar with Safe Area Top Padding */}
+      <div 
+        className="sticky top-0 z-50 w-full bg-[#969696] border-b border-[#969696]/30 pb-1.5 px-2 sm:px-4 shadow-[0_4px_20px_rgba(0,0,0,0.3)] backdrop-blur-md"
+        style={{ paddingTop: "calc(env(safe-area-inset-top, 0px) + 6px)" }}
+      >
         {/* Sparkle Icons Overlay */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-20">
           <Sparkles 
@@ -123,13 +126,13 @@ const AnnouncementBar = () => {
         </div>
       </div>
 
-      {/* Floating Live Social Proof Notification (Bottom Anchored) */}
+      {/* Floating Live Social Proof Notification (Top Anchored Below Banner) */}
       {currentNotif && (
         <div
-          className={`fixed bottom-4 left-3 right-3 sm:left-4 sm:right-auto z-[9999] max-w-md mx-auto sm:mx-0 flex items-center gap-2.5 rounded-xl border-l-[4px] border-[#10B981] bg-white/95 backdrop-blur-md px-3 py-2.5 shadow-[0_10px_25px_rgba(0,0,0,0.18)] overflow-hidden transition-all duration-500 ease-in-out ${
+          className={`fixed top-14 left-3 right-3 sm:left-4 sm:right-auto z-[9999] max-w-md mx-auto sm:mx-0 flex items-center gap-2.5 rounded-xl border-l-[4px] border-[#10B981] bg-white/95 backdrop-blur-md px-3 py-2.5 shadow-[0_10px_25px_rgba(0,0,0,0.18)] overflow-hidden transition-all duration-300 ease-in-out ${
             isVisible
-              ? "translate-y-0 opacity-100"
-              : "translate-y-6 opacity-0 pointer-events-none"
+              ? "translate-y-0 opacity-100 pointer-events-auto"
+              : "-translate-y-3 opacity-0 pointer-events-none"
           }`}
         >
           {/* Green Checkmark Circle */}
