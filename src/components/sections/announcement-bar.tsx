@@ -126,21 +126,21 @@ const AnnouncementBar = () => {
       {/* Floating Live Social Proof Notification */}
       {currentNotif && (
         <div
-          className={`fixed top-12 sm:top-16 right-4 z-[9999] flex items-center gap-3 rounded-2xl border-l-[6px] border-[#10B981] bg-white px-4 py-3 shadow-[0_10px_25px_rgba(0,0,0,0.15)] overflow-hidden transition-all duration-500 ease-in-out ${
+          className={`fixed top-14 left-3 right-3 sm:left-auto sm:right-4 z-[9999] max-w-md mx-auto sm:mx-0 flex items-center gap-2.5 rounded-xl border-l-[4px] border-[#10B981] bg-white/95 backdrop-blur-sm px-3 py-2 shadow-[0_8px_20px_rgba(0,0,0,0.12)] overflow-hidden transition-all duration-500 ease-in-out ${
             isVisible
               ? "translate-y-0 opacity-100"
-              : "-translate-y-6 opacity-0 pointer-events-none"
+              : "-translate-y-4 opacity-0 pointer-events-none"
           }`}
         >
           {/* Green Checkmark Circle */}
-          <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#10B981] text-white">
-            <Check className="w-4 h-4" strokeWidth={3} />
+          <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#10B981] text-white">
+            <Check className="w-3 h-3" strokeWidth={3} />
           </div>
 
           {/* Notification Text */}
-          <div className="text-xs sm:text-sm text-[#333333]">
+          <div className="text-[11px] sm:text-xs text-[#333333] truncate">
             <span className="font-bold">{currentNotif.name} </span>
-            <span>{currentNotif.action}</span>
+            <span className="text-[#555555]">{currentNotif.action}</span>
           </div>
         </div>
       )}
