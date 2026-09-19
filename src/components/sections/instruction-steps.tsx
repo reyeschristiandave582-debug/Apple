@@ -51,20 +51,20 @@ export default function InstructionSteps() {
         </div>
 
         {/* Dynamic Step List */}
-        <div className="relative z-10 space-y-2.5 sm:space-y-3">
+        <div className="relative z-10 space-y-2 sm:space-y-2.5">
           {steps.map((step, index) => (
             <div
               key={index}
-              className="flex items-start gap-3 group/item animate-in fade-in slide-in-from-left duration-500 fill-mode-both"
+              className="flex items-start gap-2.5 group/item animate-in fade-in slide-in-from-left duration-500 fill-mode-both"
               style={{ animationDelay: `${index * 80}ms` }}
             >
-              {/* Number Badge */}
-              <div className="relative flex-shrink-0 w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center rounded-full bg-black text-white font-bold text-xs sm:text-sm shadow-md group-hover/item:scale-105 transition-transform duration-200 mt-0.5">
+              {/* Scaled-Down Number Badge */}
+              <div className="relative flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 flex items-center justify-center rounded-full bg-black text-white font-bold text-[10px] sm:text-xs shadow-sm group-hover/item:scale-105 transition-transform duration-200 mt-0.5">
                 {step.number}
               </div>
 
               {/* Step Title & Subtext */}
-              <div className="flex-1 border-b border-gray-100 pb-2.5 last:border-0 last:pb-0">
+              <div className="flex-1 border-b border-gray-100 pb-2 last:border-0 last:pb-0">
                 <p className="text-gray-900 text-[13px] sm:text-[14px] font-bold tracking-tight leading-snug">
                   {step.title}
                 </p>
