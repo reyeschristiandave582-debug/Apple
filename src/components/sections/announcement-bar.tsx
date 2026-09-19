@@ -8,38 +8,35 @@ interface NotificationItem {
   action: string;
 }
 
-const notifications: NotificationItem[] = [
-  { name: "Richard L.", action: "just claimed a $1000 Apple coupon!" },
-  { name: "Sarah M.", action: "just claimed a $1000 Apple gift card!" },
-  { name: "David K.", action: "just unlocked reward eligibility!" },
-  { name: "Amanda T.", action: "just claimed a $500 Amazon gift card!" },
-  { name: "Michael B.", action: "just completed the review survey!" },
-  { name: "Jessica W.", action: "just claimed a $1000 Apple coupon!" },
-  { name: "James P.", action: "just verified eligibility!" },
-  { name: "Emily R.", action: "just claimed a $1000 Apple gift card!" },
-  { name: "Robert H.", action: "just claimed a $250 Walmart card!" },
-  { name: "Ashley C.", action: "just unlocked reward eligibility!" },
-  { name: "Brian G.", action: "just completed the review survey!" },
-  { name: "Megan S.", action: "just claimed a $1000 Apple coupon!" },
-  { name: "Christopher D.", action: "just claimed a $500 Amazon gift card!" },
-  { name: "Hannah K.", action: "just verified eligibility!" },
-  { name: "Joshua L.", action: "just claimed a $1000 Apple gift card!" },
-  { name: "Rachel E.", action: "just claimed a $250 Walmart card!" },
-  { name: "Matthew V.", action: "just unlocked reward eligibility!" },
-  { name: "Samantha N.", action: "just completed the review survey!" },
-  { name: "Andrew F.", action: "just claimed a $1000 Apple coupon!" },
-  { name: "Nicole B.", action: "just claimed a $500 Amazon gift card!" },
-  { name: "Daniel R.", action: "just verified eligibility!" },
-  { name: "Lauren M.", action: "just claimed a $1000 Apple gift card!" },
-  { name: "Kevin P.", action: "just claimed a $1000 Apple coupon!" },
-  { name: "Victoria S.", action: "just verified eligibility!" },
-  { name: "Brandon T.", action: "just completed the review survey!" },
-  { name: "Stephanie H.", action: "just claimed a $1000 Apple gift card!" },
-  { name: "Justin A.", action: "just unlocked reward eligibility!" },
-  { name: "Brittany D.", action: "just claimed a $1000 Apple coupon!" },
-  { name: "Tyler G.", action: "just claimed a $500 Amazon gift card!" },
-  { name: "Alyssa C.", action: "just verified eligibility!" },
+// Data pools to build 100 unique notifications
+const firstNames = [
+  "Richard", "Sarah", "David", "Amanda", "Michael", "Jessica", "James", "Emily", "Robert", "Ashley",
+  "Brian", "Megan", "Christopher", "Hannah", "Joshua", "Rachel", "Matthew", "Samantha", "Andrew", "Nicole",
+  "Daniel", "Lauren", "Kevin", "Victoria", "Brandon", "Stephanie", "Justin", "Brittany", "Tyler", "Alyssa",
+  "Alexander", "Elizabeth", "Ethan", "Taylor", "Jacob", "Alexis", "William", "Kayla", "Anthony", "Brianna",
+  "Joseph", "Olivia", "Jonathan", "Sophia", "Samuel", "Grace", "Benjamin", "Chloe", "Nicholas", "Natalie",
+  "Christian", "Madison", "Jackson", "Ella", "Gabriel", "Avery", "Logan", "Evelyn", "Lucas", "Mia",
+  "Noah", "Harper", "Liam", "Camila", "Mason", "Gianna", "Oliver", "Abigail", "Elijah", "Emily",
+  "Aiden", "Ella", "Jameson", "Scarlett", "Carter", "Aria", "Julian", "Hailey", "Henry", "Kaylee",
+  "Wyatt", "Lily", "Owen", "Addison", "Caleb", "Aubrey", "Nathan", "Ellie", "Ryan", "Stella",
+  "Jack", "Nora", "Hunter", "Zoe", "Levi", "Hannah", "Isaac", "Leah", "Luke", "Lucy"
 ];
+
+const lastInitials = ["A.", "B.", "C.", "D.", "E.", "F.", "G.", "H.", "K.", "L.", "M.", "N.", "P.", "R.", "S.", "T.", "V.", "W."];
+
+const actions = [
+  "just claimed a $1000 Apple coupon!",
+  "just claimed a $1000 Apple gift card!",
+  "just unlocked reward eligibility!",
+  "just completed the review survey!",
+  "just verified eligibility!"
+];
+
+// Dynamically generate 100 people claiming rewards
+const notifications: NotificationItem[] = Array.from({ length: 100 }, (_, i) => ({
+  name: `${firstNames[i % firstNames.length]} ${lastInitials[i % lastInitials.length]}`,
+  action: actions[i % actions.length]
+}));
 
 /**
  * AnnouncementBar Component
@@ -129,14 +126,14 @@ const AnnouncementBar = () => {
       {/* Floating Live Social Proof Notification */}
       {currentNotif && (
         <div
-          className={`fixed top-4 right-4 z-[9999] flex items-center gap-3 rounded-2xl border-l-[6px] border-[#d30000] bg-white px-4 py-3 shadow-[0_10px_25px_rgba(0,0,0,0.15)] transition-all duration-500 ease-in-out ${
+          className={`fixed top-4 right-4 z-[9999] flex items-center gap-3 rounded-2xl border-l-[6px] border-black bg-white px-4 py-3 shadow-[0_10px_25px_rgba(0,0,0,0.15)] transition-all duration-500 ease-in-out ${
             isVisible
               ? "translate-y-0 opacity-100"
               : "-translate-y-6 opacity-0 pointer-events-none"
           }`}
         >
-          {/* Checkmark Icon Circle */}
-          <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#d30000] text-white">
+          {/* Green Checkmark Circle */}
+          <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#10B981] text-white">
             <Check className="w-4 h-4" strokeWidth={3} />
           </div>
 
