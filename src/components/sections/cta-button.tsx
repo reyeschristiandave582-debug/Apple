@@ -50,7 +50,6 @@ export default function CTAButton() {
 
       {/* Trust Micro-Copy */}
       <p className="mt-2.5 text-gray-500 text-[10px] sm:text-[11px] font-medium tracking-tight text-center">
-        (No purchase required &bull; Eligibility and reward terms apply)
       </p>
 
       {/* Ambient Floor Glow */}
