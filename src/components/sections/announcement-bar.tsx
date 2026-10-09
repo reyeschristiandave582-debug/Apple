@@ -32,11 +32,18 @@ const actions = [
   "just verified eligibility!"
 ];
 
+// Dynamically generate 100 people claiming rewards
 const notifications: NotificationItem[] = Array.from({ length: 100 }, (_, i) => ({
   name: `${firstNames[i % firstNames.length]} ${lastInitials[i % lastInitials.length]}`,
   action: actions[i % actions.length]
 }));
 
+/**
+ * AnnouncementBar Component
+ * 
+ * High-converting sticky top bar with countdown timer, security lock,
+ * social proof counter, and bottom-anchored dynamic live notifications.
+ */
 const AnnouncementBar = () => {
   const [currentNotif, setCurrentNotif] = useState<NotificationItem | null>(null);
   const [isVisible, setIsVisible] = useState<boolean>(false);
@@ -67,15 +74,18 @@ const AnnouncementBar = () => {
       setCurrentNotif(notifications[randomIndex]);
       setIsVisible(true);
 
+      // Hide after 4 seconds
       setTimeout(() => {
         setIsVisible(false);
       }, 4000);
     };
 
+    // Initial trigger after 2 seconds
     const initialTimer = setTimeout(() => {
       showRandomNotif();
     }, 2000);
 
+    // Loop through notifications every 8 seconds
     const interval = setInterval(() => {
       showRandomNotif();
     }, 8000);
@@ -88,12 +98,12 @@ const AnnouncementBar = () => {
 
   return (
     <>
-      {/* Sticky Bar Container with Safe Area Offset to Prevent Notch/Status Bar Cut-off */}
+      {/* Sticky Top Bar Container with iOS Safe Area Protection */}
       <div 
         className="sticky top-0 z-50 w-full bg-[#969696] border-b border-[#969696]/30 pb-2.5 px-2 sm:px-4 shadow-[0_4px_20px_rgba(0,0,0,0.3)] backdrop-blur-md"
         style={{ paddingTop: "calc(env(safe-area-inset-top, 0px) + 14px)" }}
       >
-        {/* Subtle Sparkle Icons Background Accent */}
+        {/* Sparkle Overlay */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-20">
           <Sparkles 
             className="absolute left-[3%] sm:left-[8%] top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-white animate-pulse" 
@@ -105,15 +115,15 @@ const AnnouncementBar = () => {
           />
         </div>
 
-        {/* High-Converting Single-Line Container */}
+        {/* Ultra-Clean Single-Line Headline */}
         <div className="relative z-10 flex items-center justify-center max-w-2xl mx-auto">
           <div className="flex items-center justify-center gap-1.5 sm:gap-2 text-[#000000] text-[11px] sm:text-[12px] font-bold tracking-tight text-center leading-none">
-            {/* Security Lock Icon */}
+            {/* Lock Icon */}
             <Lock className="w-3.5 h-3.5 text-[#000000] shrink-0" strokeWidth={2.5} />
 
             <span className="whitespace-nowrap">Your spot is reserved for:</span>
             
-            {/* Red Countdown Pill */}
+            {/* Dark Red Countdown Pill */}
             <span className="inline-flex items-center gap-1 bg-[#111111] text-red-400 px-2 py-0.5 rounded-md font-mono text-[11px] sm:text-[12px] font-bold shadow-sm shrink-0">
               <Clock className="w-3 h-3 text-red-400 animate-pulse" />
               <span>{formatTime(timeLeft)}</span>
@@ -129,25 +139,27 @@ const AnnouncementBar = () => {
           </div>
         </div>
 
-        {/* Shimmer Bottom Line */}
+        {/* Shimmer Bottom Border */}
         <div className="absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-transparent via-[#ffffff] to-transparent w-full opacity-50 overflow-hidden">
           <div className="absolute inset-0 bg-white/20 animate-shine"></div>
         </div>
       </div>
 
-      {/* Floating Live Social Proof Toast */}
+      {/* Floating Bottom-Left Social Proof Toast (Non-Intrusive) */}
       {currentNotif && (
         <div
-          className={`fixed top-16 left-3 right-3 sm:left-4 sm:right-auto z-[9999] max-w-md mx-auto sm:mx-0 flex items-center gap-2.5 rounded-xl border-l-[4px] border-[#10B981] bg-white/95 backdrop-blur-md px-3 py-2.5 shadow-[0_10px_25px_rgba(0,0,0,0.18)] overflow-hidden transition-all duration-300 ease-in-out ${
+          className={`fixed bottom-4 left-3 right-3 sm:left-4 sm:right-auto z-[9999] max-w-sm flex items-center gap-2.5 rounded-xl border-l-[4px] border-[#10B981] bg-white/95 backdrop-blur-md px-3.5 py-2.5 shadow-[0_10px_25px_rgba(0,0,0,0.2)] overflow-hidden transition-all duration-300 ease-in-out ${
             isVisible
               ? "translate-y-0 opacity-100 pointer-events-auto"
-              : "-translate-y-3 opacity-0 pointer-events-none"
+              : "translate-y-4 opacity-0 pointer-events-none"
           }`}
         >
+          {/* Green Check Icon Circle */}
           <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#10B981] text-white">
             <Check className="w-3 h-3" strokeWidth={3} />
           </div>
 
+          {/* Toast Text */}
           <div className="text-[11px] sm:text-xs text-[#333333] truncate">
             <span className="font-bold">{currentNotif.name} </span>
             <span className="text-[#555555]">{currentNotif.action}</span>
