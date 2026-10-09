@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { Lock, Sparkles, Check } from "lucide-react";
+import { Lock, Sparkles, Check, Clock } from "lucide-react";
 
 interface NotificationItem {
   name: string;
@@ -32,40 +32,50 @@ const actions = [
   "just verified eligibility!"
 ];
 
-// Dynamically generate 100 people claiming rewards
 const notifications: NotificationItem[] = Array.from({ length: 100 }, (_, i) => ({
   name: `${firstNames[i % firstNames.length]} ${lastInitials[i % lastInitials.length]}`,
   action: actions[i % actions.length]
 }));
 
-/**
- * AnnouncementBar Component
- * 
- * A sticky top bar combining 256-Bit SSL encryption trust with live participation social proof
- * and dynamic floating top social proof toast notifications.
- */
 const AnnouncementBar = () => {
   const [currentNotif, setCurrentNotif] = useState<NotificationItem | null>(null);
   const [isVisible, setIsVisible] = useState<boolean>(false);
 
+  // 5-minute persistent timer state (300 seconds)
+  const [timeLeft, setTimeLeft] = useState<number>(300);
+
+  // Timer countdown hook
+  useEffect(() => {
+    if (timeLeft <= 0) return;
+    const timerInterval = setInterval(() => {
+      setTimeLeft((prev) => prev - 1);
+    }, 1000);
+
+    return () => clearInterval(timerInterval);
+  }, [timeLeft]);
+
+  const formatTime = (seconds: number) => {
+    const mins = Math.floor(seconds / 60);
+    const secs = seconds % 60;
+    return `${mins.toString().padStart(2, "0")}:${secs.toString().padStart(2, "0")}`;
+  };
+
+  // Social proof notification loop
   useEffect(() => {
     const showRandomNotif = () => {
       const randomIndex = Math.floor(Math.random() * notifications.length);
       setCurrentNotif(notifications[randomIndex]);
       setIsVisible(true);
 
-      // Hide after 4 seconds
       setTimeout(() => {
         setIsVisible(false);
       }, 4000);
     };
 
-    // Trigger initial notification after 2 seconds
     const initialTimer = setTimeout(() => {
       showRandomNotif();
     }, 2000);
 
-    // Loop through notifications every 8 seconds
     const interval = setInterval(() => {
       showRandomNotif();
     }, 8000);
@@ -80,53 +90,53 @@ const AnnouncementBar = () => {
     <>
       {/* Top Banner Bar with Safe Area Top Padding */}
       <div 
-        className="sticky top-0 z-50 w-full bg-[#969696] border-b border-[#969696]/30 pb-1.5 px-2 sm:px-4 shadow-[0_4px_20px_rgba(0,0,0,0.3)] backdrop-blur-md"
+        className="sticky top-0 z-50 w-full bg-[#8e8e8e] border-b border-[#8e8e8e]/30 py-1.5 px-2 sm:px-4 shadow-[0_4px_20px_rgba(0,0,0,0.3)] backdrop-blur-md"
         style={{ paddingTop: "calc(env(safe-area-inset-top, 0px) + 6px)" }}
       >
-        {/* Sparkle Icons Overlay */}
+        {/* Subtle Sparkle Icons */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-20">
           <Sparkles 
-            className="absolute left-[5%] sm:left-[10%] top-1/2 -translate-y-1/2 w-3.5 h-3.5 sm:w-4 sm:h-4 text-white animate-pulse" 
+            className="absolute left-[3%] sm:left-[8%] top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-white animate-pulse" 
             strokeWidth={1.5}
           />
           <Sparkles 
-            className="absolute right-[5%] sm:right-[10%] top-1/2 -translate-y-1/2 w-3.5 h-3.5 sm:w-4 sm:h-4 text-white animate-pulse" 
+            className="absolute right-[3%] sm:right-[8%] top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-white animate-pulse" 
             strokeWidth={1.5}
           />
         </div>
 
-        {/* Main Content Container */}
-        <div className="relative z-10 flex flex-col items-center justify-center max-w-xl mx-auto">
-          {/* Top Row: Security & Social Proof Combined */}
-          <div className="flex items-center justify-center gap-1.5 sm:gap-3 w-full">
-            <div className="flex items-center justify-center gap-1.5 text-center max-w-full">
-              <Lock 
-                className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#000000] shrink-0" 
-                strokeWidth={2.5}
-              />
-              <p className="text-[#000000] text-[10px] xs:text-[11px] sm:text-[12px] font-bold tracking-tight text-center leading-tight">
-                256-Bit SSL Secured &bull; Over 1,400+ participants completed verification today
-              </p>
-            </div>
-          </div>
+        {/* High-Converting Single Line Container */}
+        <div className="relative z-10 flex items-center justify-center max-w-2xl mx-auto">
+          <div className="flex items-center justify-center gap-1.5 sm:gap-2.5 text-[#000000] text-[11px] sm:text-[12px] font-bold tracking-tight text-center leading-tight">
+            {/* Security Lock Icon */}
+            <Lock className="w-3.5 h-3.5 text-[#000000] shrink-0" strokeWidth={2.5} />
 
-          {/* Bottom Row: Subtext with decorative lines */}
-          <div className="flex items-center gap-2 mt-0.5">
-            <div className="h-[1px] w-3 sm:w-4 bg-[#000000]"></div>
-            <p className="text-[#000000] text-[8px] sm:text-[9px] uppercase tracking-[0.12em] sm:tracking-[0.15em] font-bold whitespace-nowrap">
-              Secure Eligibility Check &bull; Privacy Protected
-            </p>
-            <div className="h-[1px] w-3 sm:w-4 bg-[#000000]"></div>
+            {/* Combined Single Line Headline */}
+            <div className="flex items-center gap-1.5 flex-wrap justify-center">
+              <span>Your spot is reserved for:</span>
+              
+              {/* High-Contrast Countdown Pill */}
+              <span className="inline-flex items-center gap-1 bg-[#111111] text-red-400 px-2 py-0.5 rounded-md font-mono text-[11px] sm:text-[12px] font-bold shadow-sm">
+                <Clock className="w-3 h-3 text-red-400 animate-pulse" />
+                <span>{formatTime(timeLeft)}</span>
+              </span>
+
+              <span className="hidden xs:inline text-black/50">•</span>
+
+              <span className="font-semibold text-black/90">
+                1,400+ verified today
+              </span>
+            </div>
           </div>
         </div>
 
-        {/* Shimmering Bottom Border Accent */}
+        {/* Shimmering Bottom Accent */}
         <div className="absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-transparent via-[#ffffff] to-transparent w-full opacity-50 overflow-hidden">
           <div className="absolute inset-0 bg-white/20 animate-shine"></div>
         </div>
       </div>
 
-      {/* Floating Live Social Proof Notification (Top Anchored Below Banner) */}
+      {/* Dynamic Floating Social Proof Toast */}
       {currentNotif && (
         <div
           className={`fixed top-14 left-3 right-3 sm:left-4 sm:right-auto z-[9999] max-w-md mx-auto sm:mx-0 flex items-center gap-2.5 rounded-xl border-l-[4px] border-[#10B981] bg-white/95 backdrop-blur-md px-3 py-2.5 shadow-[0_10px_25px_rgba(0,0,0,0.18)] overflow-hidden transition-all duration-300 ease-in-out ${
@@ -135,12 +145,10 @@ const AnnouncementBar = () => {
               : "-translate-y-3 opacity-0 pointer-events-none"
           }`}
         >
-          {/* Green Checkmark Circle */}
           <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#10B981] text-white">
             <Check className="w-3 h-3" strokeWidth={3} />
           </div>
 
-          {/* Notification Text */}
           <div className="text-[11px] sm:text-xs text-[#333333] truncate">
             <span className="font-bold">{currentNotif.name} </span>
             <span className="text-[#555555]">{currentNotif.action}</span>
