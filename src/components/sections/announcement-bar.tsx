@@ -90,10 +90,10 @@ const AnnouncementBar = () => {
     <>
       {/* Top Banner Bar with Safe Area Top Padding */}
       <div 
-        className="sticky top-0 z-50 w-full bg-[#8e8e8e] border-b border-[#8e8e8e]/30 py-1.5 px-2 sm:px-4 shadow-[0_4px_20px_rgba(0,0,0,0.3)] backdrop-blur-md"
-        style={{ paddingTop: "calc(env(safe-area-inset-top, 0px) + 6px)" }}
+        className="sticky top-0 z-50 w-full bg-[#969696] border-b border-[#969696]/30 py-2 px-2 sm:px-4 shadow-[0_4px_20px_rgba(0,0,0,0.3)] backdrop-blur-md"
+        style={{ paddingTop: "calc(env(safe-area-inset-top, 0px) + 8px)" }}
       >
-        {/* Subtle Sparkle Icons */}
+        {/* Subtle Sparkle Icons Overlay */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-20">
           <Sparkles 
             className="absolute left-[3%] sm:left-[8%] top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-white animate-pulse" 
@@ -107,26 +107,25 @@ const AnnouncementBar = () => {
 
         {/* High-Converting Single Line Container */}
         <div className="relative z-10 flex items-center justify-center max-w-2xl mx-auto">
-          <div className="flex items-center justify-center gap-1.5 sm:gap-2.5 text-[#000000] text-[11px] sm:text-[12px] font-bold tracking-tight text-center leading-tight">
+          <div className="flex items-center justify-center gap-1.5 sm:gap-2 text-[#000000] text-[11px] sm:text-[12px] font-bold tracking-tight text-center leading-none">
             {/* Security Lock Icon */}
             <Lock className="w-3.5 h-3.5 text-[#000000] shrink-0" strokeWidth={2.5} />
 
-            {/* Combined Single Line Headline */}
-            <div className="flex items-center gap-1.5 flex-wrap justify-center">
-              <span>Your spot is reserved for:</span>
-              
-              {/* High-Contrast Countdown Pill */}
-              <span className="inline-flex items-center gap-1 bg-[#111111] text-red-400 px-2 py-0.5 rounded-md font-mono text-[11px] sm:text-[12px] font-bold shadow-sm">
-                <Clock className="w-3 h-3 text-red-400 animate-pulse" />
-                <span>{formatTime(timeLeft)}</span>
-              </span>
+            <span>Your spot is reserved for:</span>
+            
+            {/* High-Contrast Countdown Pill */}
+            <span className="inline-flex items-center gap-1 bg-[#111111] text-red-400 px-2 py-0.5 rounded-md font-mono text-[11px] sm:text-[12px] font-bold shadow-sm">
+              <Clock className="w-3 h-3 text-red-400 animate-pulse" />
+              <span>{formatTime(timeLeft)}</span>
+            </span>
 
-              <span className="hidden xs:inline text-black/50">•</span>
+            {/* Separator Bullet */}
+            <span className="text-black/40 font-normal select-none">•</span>
 
-              <span className="font-semibold text-black/90">
-                1,400+ verified today
-              </span>
-            </div>
+            {/* Social Proof Count */}
+            <span className="font-semibold text-black/90 whitespace-nowrap">
+              1,400+ verified today
+            </span>
           </div>
         </div>
 
